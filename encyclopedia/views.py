@@ -35,13 +35,28 @@ def search(request):
             })
             return HttpResponseRedirect('search/index.html')
 
-def create_page(request)
+class newpageForm(forms.Form):
+    title   = forms.CharField(max_length=100)
+    content = forms.CharField(widget=forms.Textarea)
+
+def create_page(request):
+    if request.method == 'POST':
+        form = newpageForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+            return HttpResponseRedirect('encyclopedia/index.html',{"var1":title,"var2":content})
+    else:
+        form = newpageForm()
+    
 
     
 
 
         
         
+
+
 
 
 
@@ -63,7 +78,6 @@ def search(request):
                 "key":name.capitalize(),
                 "list_test":util.list_entries(),
                 "list_testt":list_test
-
 
 """
 
