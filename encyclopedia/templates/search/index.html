@@ -1,0 +1,107 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   search
+{% endblock %}
+
+{% block body %}
+   <h1>search</h1>
+
+   <ul>
+      {% for ele in new_list %}
+         <li><a href= "/wiki/{{ele}}" >{{ ele }}</a></li>
+      {% empty %}
+         <h3>this page not exict See All pages </h3>
+            {% for items in list_test %}
+                  <ul>
+                     <li><a href= "/wiki/{{items}}" >{{ items }}</a></li>   
+                  </ul>
+               {% endfor %}
+      {% endfor %}
+   </ul>
+
+    
+ <!-----------------
+    <ul>
+      
+      
+         {% for ele in list_test %}
+
+            {% if key in ele %}
+
+               <h3><a href="{% url 'index' %}">See All pages </a></h3>
+
+               <li><a href= "#" >{{ ele }}</a></li>   
+               
+            
+  
+            {% endif %}
+            
+         {% endfor %}
+
+        
+         
+
+
+         
+        
+      
+
+     </ul>
+   --->
+    
+<!------------
+    <ul>
+            
+            <li>{{name}}</li>
+            
+            
+       ----<li><a href="wiki/{{key}}">{{key}}</a></li>----------
+            
+            
+      </ul>
+   
+      
+
+        <ul>
+         {% if key in list_test %}
+
+            <li>{{respons}}</li>
+         
+         {% else %}
+         
+            {% for ele in list_test %}
+
+               {% if key in ele %}
+
+                  <li><a href="#">{{ ele }}</a></li>    
+
+               {% endif %}
+            
+            {% endfor%}
+            
+         {% endif %}
+
+        </ul>
+ ------------->
+<!-------
+        <ul>
+         {% for ele in list_testt %}
+
+            {% if "ab" in ele %}
+                           <li><a href="#">{{ ele }}</a></li>
+            {% endif %}
+
+         {% endfor%}
+
+        </ul>
+---->
+     
+   
+
+    
+     
+
+    
+
+{% endblock %}
